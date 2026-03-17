@@ -1,0 +1,130 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.services {
+  padding: pxtovw(100) 0;
+  background-color: $light-grey;
+
+  @include tablet {
+    padding: pxtovwmob(80) 0;
+  }
+
+  &__header {
+    text-align: center;
+    max-width: pxtovw(600);
+    margin: 0 auto pxtovw(60);
+
+    @include tablet {
+      max-width: 100%;
+      margin: 0 auto pxtovwmob(40);
+    }
+
+    h2 {
+      font-size: pxtovw(40);
+      margin-bottom: pxtovw(16);
+
+      @include tablet {
+        font-size: pxtovwmob(32);
+        margin-bottom: pxtovwmob(12);
+      }
+    }
+    
+    p {
+      color: $neutral-grey;
+      font-size: pxtovw(18);
+
+      @include tablet {
+        font-size: pxtovwmob(16);
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: pxtovw(30);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: pxtovwmob(20);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    background: $white;
+    padding: pxtovw(40) pxtovw(30);
+    border-radius: pxtovw(16);
+    box-shadow: 0 pxtovw(10) pxtovw(30) rgba(#000, 0.05);
+    transition: all 0.4s ease;
+    border-bottom: pxtovw(4) solid transparent;
+
+    @include tablet {
+      padding: pxtovwmob(30) pxtovwmob(20);
+      border-radius: pxtovwmob(12);
+      box-shadow: 0 pxtovwmob(8) pxtovwmob(24) rgba(#000, 0.05);
+      border-bottom-width: pxtovwmob(4);
+    }
+
+    &:hover {
+      transform: translateY(pxtovw(-10));
+      box-shadow: 0 pxtovw(20) pxtovw(40) rgba($primary-blue, 0.15);
+      border-bottom-color: $medical-green;
+
+      @include tablet {
+        transform: translateY(pxtovwmob(-8));
+        box-shadow: 0 pxtovwmob(16) pxtovwmob(32) rgba($primary-blue, 0.15);
+      }
+
+      .services__icon {
+        background-color: $medical-green;
+        color: $white;
+      }
+    }
+  }
+
+  &__icon {
+    width: pxtovw(60);
+    height: pxtovw(60);
+    background-color: rgba($primary-blue, 0.1);
+    color: $primary-blue;
+    border-radius: pxtovw(12);
+    @include flex-center;
+    font-size: pxtovw(30);
+    margin-bottom: pxtovw(24);
+    transition: all 0.3s ease;
+
+    @include tablet {
+      width: pxtovwmob(50);
+      height: pxtovwmob(50);
+      border-radius: pxtovwmob(10);
+      font-size: pxtovwmob(24);
+      margin-bottom: pxtovwmob(20);
+    }
+  }
+
+  &__title {
+    font-size: pxtovw(22);
+    font-weight: 700;
+    margin-bottom: pxtovw(16);
+    color: $primary-blue;
+
+    @include tablet {
+      font-size: pxtovwmob(18);
+      margin-bottom: pxtovwmob(12);
+    }
+  }
+
+  &__desc {
+    font-size: pxtovw(16);
+    color: $neutral-grey;
+    line-height: 1.5;
+
+    @include tablet {
+      font-size: pxtovwmob(14);
+    }
+  }
+}

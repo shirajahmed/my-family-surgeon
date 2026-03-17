@@ -1,0 +1,232 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.footer {
+  background-color: $dark-grey;
+  color: rgba($white, 0.8);
+  padding: pxtovw(80) 0 pxtovw(30);
+
+  @include tablet {
+    padding: pxtovwmob(60) 0 pxtovwmob(24);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: pxtovw(40);
+    margin-bottom: pxtovw(60);
+
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+      gap: pxtovwmob(30);
+      margin-bottom: pxtovwmob(40);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__brand {
+    &-logo {
+      display: flex;
+      align-items: center;
+      gap: pxtovw(12);
+      margin-bottom: pxtovw(24);
+
+      @include tablet {
+        gap: pxtovwmob(10);
+        margin-bottom: pxtovwmob(20);
+      }
+    }
+
+    &-icon {
+      width: pxtovw(36);
+      height: pxtovw(36);
+      background-color: $medical-green;
+      color: $white;
+      border-radius: 50%;
+      @include flex-center;
+      font-size: pxtovw(18);
+      font-weight: bold;
+
+      @include tablet {
+        width: pxtovwmob(32);
+        height: pxtovwmob(32);
+        font-size: pxtovwmob(16);
+      }
+    }
+
+    &-text {
+      font-size: pxtovw(22);
+      font-weight: 700;
+      color: $white;
+      letter-spacing: -0.5px;
+
+      @include tablet {
+        font-size: pxtovwmob(18);
+      }
+
+      span {
+        color: $medical-green;
+      }
+    }
+
+    p {
+      font-size: pxtovw(16);
+      line-height: 1.6;
+      margin-bottom: pxtovw(24);
+      max-width: pxtovw(380);
+
+      @include tablet {
+        font-size: pxtovwmob(14);
+        margin-bottom: pxtovwmob(20);
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: pxtovw(16);
+
+    @include tablet {
+      gap: pxtovwmob(12);
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: pxtovw(40);
+      height: pxtovw(40);
+      border-radius: 50%;
+      background-color: rgba($white, 0.05);
+      color: $white;
+      transition: all 0.3s ease;
+      border: pxtovw(1) solid rgba($white, 0.1);
+
+      @include tablet {
+        width: pxtovwmob(36);
+        height: pxtovwmob(36);
+        border-width: pxtovwmob(1);
+      }
+
+      svg {
+        width: pxtovw(18);
+        height: pxtovw(18);
+
+        @include tablet {
+          width: pxtovwmob(16);
+          height: pxtovwmob(16);
+        }
+      }
+
+      &:hover {
+        background-color: $medical-green;
+        border-color: $medical-green;
+        transform: translateY(pxtovw(-3));
+
+        @include tablet {
+          transform: translateY(pxtovwmob(-2));
+        }
+      }
+    }
+  }
+
+  &__column {
+    h4 {
+      color: $white;
+      font-size: pxtovw(20);
+      margin-bottom: pxtovw(24);
+      position: relative;
+      padding-bottom: pxtovw(12);
+
+      @include tablet {
+        font-size: pxtovwmob(16);
+        margin-bottom: pxtovwmob(16);
+        padding-bottom: pxtovwmob(8);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: pxtovw(40);
+        height: pxtovw(2);
+        background-color: $medical-green;
+
+        @include tablet {
+          width: pxtovwmob(30);
+        }
+      }
+    }
+
+    ul {
+      li {
+        margin-bottom: pxtovw(12);
+
+        @include tablet {
+          margin-bottom: pxtovwmob(10);
+        }
+
+        a {
+          font-size: pxtovw(16);
+          color: rgba($white, 0.7);
+          transition: color 0.3s ease;
+
+          @include tablet {
+            font-size: pxtovwmob(14);
+          }
+
+          &:hover {
+            color: $medical-green;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: pxtovw(16);
+    padding-top: pxtovw(30);
+    border-top: pxtovw(1) solid rgba($white, 0.1);
+    text-align: center;
+
+    @include tablet {
+      gap: pxtovwmob(12);
+      padding-top: pxtovwmob(20);
+      border-top-width: pxtovwmob(1);
+    }
+    
+    p {
+      margin: 0;
+    }
+  }
+
+  &__disclaimer {
+    font-size: pxtovw(13);
+    color: rgba($white, 0.5);
+    max-width: pxtovw(800);
+    line-height: pxtovw(20);
+
+    @include tablet {
+      font-size: pxtovwmob(12);
+      line-height: pxtovwmob(18);
+    }
+  }
+
+  &__copyright {
+    font-size: pxtovw(14);
+    color: rgba($white, 0.6);
+
+    @include tablet {
+      font-size: pxtovwmob(13);
+    }
+  }
+}

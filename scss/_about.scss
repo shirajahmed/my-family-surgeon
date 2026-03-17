@@ -1,0 +1,82 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.about {
+  padding: pxtovw(100) 0;
+
+  @include tablet {
+    padding: pxtovwmob(80) 0;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: pxtovw(60);
+    align-items: center;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: pxtovwmob(40);
+    }
+  }
+
+  &__content {
+    h2 {
+      font-size: pxtovw(40);
+      margin-bottom: pxtovw(20);
+      letter-spacing: -0.5px;
+
+      @include tablet {
+        font-size: pxtovwmob(32);
+        margin-bottom: pxtovwmob(16);
+      }
+    }
+
+    p {
+      font-size: pxtovw(18);
+      color: $neutral-grey;
+      margin-bottom: pxtovw(30);
+
+      @include tablet {
+        font-size: pxtovwmob(16);
+        margin-bottom: pxtovwmob(24);
+      }
+    }
+  }
+
+  &__list {
+    li {
+      margin-bottom: pxtovw(16);
+      font-size: pxtovw(18);
+      font-weight: 500;
+      color: $dark-grey;
+
+      @include tablet {
+        margin-bottom: pxtovwmob(12);
+        font-size: pxtovwmob(16);
+      }
+    }
+  }
+
+  &__img {
+    border-radius: pxtovw(20);
+    overflow: hidden;
+    box-shadow: 0 pxtovw(20) pxtovw(40) rgba($primary-blue, 0.1);
+
+    @include tablet {
+      border-radius: pxtovwmob(16);
+      box-shadow: 0 pxtovwmob(16) pxtovwmob(32) rgba($primary-blue, 0.1);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

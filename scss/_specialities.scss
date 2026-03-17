@@ -1,0 +1,138 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+
+.specialities {
+  padding: pxtovw(60) 0 pxtovw(100);
+
+  @include tablet {
+    padding: pxtovwmob(40) 0 pxtovwmob(80);
+  }
+
+  &__header {
+    text-align: center;
+    max-width: pxtovw(600);
+    margin: 0 auto pxtovw(60);
+
+    @include tablet {
+      max-width: 100%;
+      margin: 0 auto pxtovwmob(40);
+    }
+
+    h2 {
+      font-size: pxtovw(40);
+      margin-bottom: pxtovw(16);
+
+      @include tablet {
+        font-size: pxtovwmob(32);
+        margin-bottom: pxtovwmob(12);
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: pxtovw(20);
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+      gap: pxtovwmob(16);
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+      gap: pxtovwmob(12);
+    }
+  }
+
+  &__card {
+    background-color: $white;
+    border: pxtovw(1) solid rgba($neutral-grey, 0.15);
+    border-radius: pxtovw(12);
+    padding: pxtovw(30) pxtovw(16);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    @include tablet {
+      border-width: pxtovwmob(1);
+      border-radius: pxtovwmob(10);
+      padding: pxtovwmob(24) pxtovwmob(12);
+    }
+
+    &:hover {
+      background-color: $primary-blue;
+      border-color: $primary-blue;
+      transform: translateY(pxtovw(-5));
+      box-shadow: 0 pxtovw(15) pxtovw(30) rgba($primary-blue, 0.2);
+
+      @include tablet {
+        transform: translateY(pxtovwmob(-4));
+      }
+
+      .specialities__title {
+        color: $white;
+      }
+
+      .specialities__icon {
+        color: $white;
+      }
+    }
+
+    &:nth-child(3) {
+    
+
+      .specialities__icon,
+      .specialities__title {
+        color: $special-color;
+      }
+
+      &:hover {
+ background-color: $special-color;
+      border-color: $special-color;
+              box-shadow: 0 pxtovw(15) pxtovw(30) rgba($special-color, 0.3);
+
+              .specialities__icon,
+      .specialities__title {
+        color: $white;
+      }
+      }
+    }
+  }
+
+  &__icon {
+    font-size: pxtovw(40);
+    color: $primary-blue;
+    margin-bottom: pxtovw(16);
+    transition: color 0.3s ease;
+    @include flex-center;
+
+    @include tablet {
+      font-size: pxtovwmob(32);
+      margin-bottom: pxtovwmob(12);
+    }
+
+    svg {
+      width: pxtovw(40);
+      height: pxtovw(40);
+      
+      @include tablet {
+        width: pxtovwmob(32);
+        height: pxtovwmob(32);
+      }
+    }
+  }
+
+  &__title {
+    font-size: pxtovw(16);
+    font-weight: 600;
+    color: $dark-grey;
+    transition: color 0.3s ease;
+
+    @include tablet {
+      font-size: pxtovwmob(14);
+    }
+  }
+}

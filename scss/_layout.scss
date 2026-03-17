@@ -1,0 +1,70 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px; // Base size
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family;
+  color: $neutral-grey;
+  background-color: $white;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $primary-blue;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 pxtovw(80);
+
+  @include tablet {
+    padding: 0 pxtovwmob(40);
+  }
+}
+
+// Global utility classes for subtle animations
+.fade-in {
+  opacity: 0;
+  transform: translateY(pxtovw(30));
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  @include tablet {
+    transform: translateY(pxtovwmob(30));
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

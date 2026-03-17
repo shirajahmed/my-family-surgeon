@@ -1,0 +1,184 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.education {
+  padding: pxtovw(100) 0;
+  background-color: $light-grey;
+
+  @include tablet {
+    padding: pxtovwmob(80) 0;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: pxtovw(60);
+
+    @include tablet {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: pxtovwmob(20);
+      margin-bottom: pxtovwmob(40);
+    }
+
+    h2 {
+      font-size: pxtovw(40);
+      margin-bottom: pxtovw(16);
+
+      @include tablet {
+        font-size: pxtovwmob(32);
+        margin-bottom: pxtovwmob(12);
+      }
+    }
+
+    p {
+      color: $neutral-grey;
+      font-size: pxtovw(18);
+      max-width: pxtovw(500);
+
+      @include tablet {
+        font-size: pxtovwmob(16);
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: pxtovw(30);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: pxtovwmob(20);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    background: $white;
+    border-radius: pxtovw(12);
+    overflow: hidden;
+    box-shadow: 0 pxtovw(5) pxtovw(15) rgba(#000, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      border-radius: pxtovwmob(10);
+      box-shadow: 0 pxtovwmob(4) pxtovwmob(12) rgba(#000, 0.05);
+    }
+
+    &:hover {
+      transform: translateY(pxtovw(-8));
+      box-shadow: 0 pxtovw(15) pxtovw(30) rgba($primary-blue, 0.1);
+
+      @include tablet {
+        transform: translateY(pxtovwmob(-6));
+        box-shadow: 0 pxtovwmob(12) pxtovwmob(24) rgba($primary-blue, 0.1);
+      }
+
+      .education__img img {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: pxtovw(200);
+    overflow: hidden;
+
+    @include tablet {
+      height: pxtovwmob(180);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &__content {
+    padding: pxtovw(24);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    @include tablet {
+      padding: pxtovwmob(20);
+    }
+
+    &-tag {
+      font-size: pxtovw(12);
+      font-weight: 600;
+      color: $medical-green;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: pxtovw(12);
+
+      @include tablet {
+        font-size: pxtovwmob(10);
+        margin-bottom: pxtovwmob(10);
+      }
+    }
+
+    &-title {
+      font-size: pxtovw(20);
+      font-weight: 700;
+      color: $primary-blue;
+      margin-bottom: pxtovw(16);
+      line-height: 1.4;
+
+      @include tablet {
+        font-size: pxtovwmob(18);
+        margin-bottom: pxtovwmob(12);
+      }
+    }
+
+    &-link {
+      margin-top: auto;
+      font-size: pxtovw(14);
+      font-weight: 600;
+      color: $primary-blue;
+      display: inline-flex;
+      align-items: center;
+      gap: pxtovw(8);
+      transition: color 0.3s ease;
+
+      @include tablet {
+        font-size: pxtovwmob(14);
+        gap: pxtovwmob(6);
+      }
+
+      svg {
+        width: pxtovw(16);
+        height: pxtovw(16);
+        transition: transform 0.3s ease;
+
+        @include tablet {
+          width: pxtovwmob(14);
+          height: pxtovwmob(14);
+        }
+      }
+
+      &:hover {
+        color: $medical-green;
+
+        svg {
+          transform: translateX(pxtovw(4));
+
+          @include tablet {
+            transform: translateX(pxtovwmob(4));
+          }
+        }
+      }
+    }
+  }
+}

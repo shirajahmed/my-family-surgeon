@@ -1,0 +1,32 @@
+@use "sass:math";
+@use 'variables' as *;
+
+// px to vw for desktop (based on 1920px)
+@function pxtovw($px) {
+  @return math.div($px, $desktop-width) * 100vw;
+}
+
+// px to vw for mobile (based on 375px)
+@function pxtovwmob($px) {
+  @return math.div($px, $mobile-width) * 100vw;
+}
+
+// Media Query Mixins
+@mixin tablet {
+  @media (max-width: #{$tablet-bp}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile-bp}) {
+    @content;
+  }
+}
+
+// Flexbox centering mixin
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

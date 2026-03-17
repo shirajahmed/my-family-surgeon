@@ -1,0 +1,127 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.why-us {
+  padding: pxtovw(100) 0;
+
+  @include tablet {
+    padding: pxtovwmob(80) 0;
+  }
+
+  &__header {
+    text-align: center;
+    max-width: pxtovw(600);
+    margin: 0 auto pxtovw(60);
+
+    @include tablet {
+      max-width: 100%;
+      margin: 0 auto pxtovwmob(40);
+    }
+
+    h2 {
+      font-size: pxtovw(40);
+      margin-bottom: pxtovw(16);
+
+      @include tablet {
+        font-size: pxtovwmob(32);
+        margin-bottom: pxtovwmob(12);
+      }
+    }
+    
+    p {
+      color: $neutral-grey;
+      font-size: pxtovw(18);
+
+      @include tablet {
+        font-size: pxtovwmob(16);
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: pxtovw(30);
+    justify-content: center;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: pxtovwmob(20);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: pxtovw(16);
+    background: $white;
+    padding: pxtovw(30);
+    border-radius: pxtovw(12);
+    box-shadow: 0 pxtovw(4) pxtovw(15) rgba(#000, 0.03);
+    border: pxtovw(1) solid rgba($neutral-grey, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    @include tablet {
+      padding: pxtovwmob(24);
+      gap: pxtovwmob(12);
+      border-radius: pxtovwmob(10);
+      border-width: pxtovwmob(1);
+    }
+
+    &:hover {
+      transform: translateY(pxtovw(-5));
+      border-color: $medical-green;
+
+      @include tablet {
+        transform: translateY(pxtovwmob(-4));
+      }
+    }
+
+    &-icon {
+      color: $medical-green;
+      min-width: pxtovw(32);
+      
+      @include tablet {
+        min-width: pxtovwmob(28);
+      }
+
+      svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-text {
+      font-size: pxtovw(18);
+      font-weight: 600;
+      color: $dark-grey;
+      margin-top: pxtovw(4);
+      margin-bottom: pxtovw(8);
+
+      @include tablet {
+        font-size: pxtovwmob(16);
+        margin-top: pxtovwmob(4);
+        margin-bottom: pxtovwmob(6);
+      }
+    }
+
+    &-subtext {
+      font-size: pxtovw(14);
+      color: $neutral-grey;
+      line-height: 1.5;
+
+      @include tablet {
+        font-size: pxtovwmob(13);
+      }
+    }
+  }
+}

@@ -1,0 +1,314 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'sass:color';
+
+.contact {
+  padding: pxtovw(100) 0;
+  background-color: $white;
+
+  @include tablet {
+    padding: pxtovwmob(80) 0;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: pxtovw(60);
+    background-color: $white;
+    border-radius: pxtovw(20);
+    box-shadow: 0 pxtovw(20) pxtovw(60) rgba(#000, 0.05);
+    overflow: hidden;
+    border: pxtovw(1) solid rgba($neutral-grey, 0.1);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-radius: pxtovwmob(16);
+    }
+  }
+
+  &__info {
+    padding: pxtovw(60) pxtovw(50);
+    background-color: $primary-blue;
+    color: $white;
+
+    @include tablet {
+      padding: pxtovwmob(40) pxtovwmob(30);
+    }
+
+    h2 {
+      color: $white;
+      font-size: pxtovw(36);
+      margin-bottom: pxtovw(30);
+
+      @include tablet {
+        font-size: pxtovwmob(28);
+        margin-bottom: pxtovwmob(24);
+      }
+    }
+  }
+
+  &__details {
+    margin-bottom: pxtovw(40);
+
+    @include tablet {
+      margin-bottom: pxtovwmob(30);
+    }
+
+    &-item {
+      display: flex;
+      align-items: flex-start;
+      gap: pxtovw(16);
+      margin-bottom: pxtovw(24);
+
+      @include tablet {
+        gap: pxtovwmob(12);
+        margin-bottom: pxtovwmob(20);
+      }
+
+      svg {
+        width: pxtovw(24);
+        height: pxtovw(24);
+        color: $medical-green;
+        flex-shrink: 0;
+        margin-top: pxtovw(2);
+
+        @include tablet {
+          width: pxtovwmob(20);
+          height: pxtovwmob(20);
+        }
+      }
+
+      div {
+        p {
+          margin: 0;
+          font-size: pxtovw(16);
+          color: rgba($white, 0.9);
+          line-height: 1.5;
+
+          @include tablet {
+            font-size: pxtovwmob(15);
+          }
+        }
+        
+        strong {
+          display: block;
+          font-size: pxtovw(14);
+          color: $white;
+          opacity: 0.7;
+          margin-bottom: pxtovw(4);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+
+          @include tablet {
+            font-size: pxtovwmob(12);
+          }
+        }
+      }
+    }
+  }
+
+  &__map {
+    width: 100%;
+    height: pxtovw(200);
+    background-color: rgba($white, 0.1);
+    border-radius: pxtovw(12);
+    overflow: hidden;
+
+    @include tablet {
+      height: pxtovwmob(180);
+      border-radius: pxtovwmob(8);
+    }
+
+    /* Placeholder map style */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba($white, 0.5);
+    font-size: pxtovw(14);
+
+    @include tablet {
+      font-size: pxtovwmob(12);
+    }
+  }
+
+  &__form {
+    padding: pxtovw(60) pxtovw(50);
+
+    @include tablet {
+      padding: pxtovwmob(40) pxtovwmob(30);
+    }
+
+    h3 {
+      font-size: pxtovw(32);
+      margin-bottom: pxtovw(12);
+
+      @include tablet {
+        font-size: pxtovwmob(26);
+        margin-bottom: pxtovwmob(8);
+      }
+    }
+
+    p {
+      color: $neutral-grey;
+      margin-bottom: pxtovw(30);
+      font-size: pxtovw(16);
+
+      @include tablet {
+        font-size: pxtovwmob(14);
+        margin-bottom: pxtovwmob(24);
+      }
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: pxtovw(20);
+
+      @include tablet {
+        grid-template-columns: 1fr;
+        gap: pxtovwmob(16);
+      }
+
+      .full-width {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    label {
+      display: block;
+      font-size: pxtovw(14);
+      font-weight: 500;
+      color: $dark-grey;
+      margin-bottom: pxtovw(8);
+
+      @include tablet {
+        font-size: pxtovwmob(13);
+        margin-bottom: pxtovwmob(6);
+      }
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: pxtovw(14) pxtovw(16);
+      border: pxtovw(1) solid rgba($neutral-grey, 0.3);
+      border-radius: pxtovw(8);
+      font-family: inherit;
+      font-size: pxtovw(16);
+      color: $dark-grey;
+      transition: border-color 0.3s ease;
+      background-color: $white;
+
+      @include tablet {
+        padding: pxtovwmob(12) pxtovwmob(14);
+        border-width: pxtovwmob(1);
+        border-radius: pxtovwmob(6);
+        font-size: pxtovwmob(15);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $primary-blue;
+      }
+
+      &.error {
+        border-color: #dc3545;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      height: pxtovw(120);
+
+      @include tablet {
+        height: pxtovwmob(100);
+      }
+    }
+
+    .error-msg {
+      display: none;
+      color: #dc3545;
+      font-size: pxtovw(12);
+      margin-top: pxtovw(4);
+
+      @include tablet {
+        font-size: pxtovwmob(11);
+      }
+    }
+
+    .form-submit {
+      margin-top: pxtovw(10);
+      position: relative;
+
+      @include tablet {
+        margin-top: pxtovwmob(8);
+      }
+
+      .btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: pxtovw(10);
+      }
+    }
+
+    .spinner {
+      display: none;
+      width: pxtovw(20);
+      height: pxtovw(20);
+      border: 3px solid rgba($white, 0.3);
+      border-radius: 50%;
+      border-top-color: $white;
+      animation: spin 1s ease-in-out infinite;
+
+      @include tablet {
+        width: pxtovwmob(16);
+        height: pxtovwmob(16);
+      }
+
+      &.active {
+        display: block;
+      }
+    }
+
+    .form-feedback {
+      display: none;
+      padding: pxtovw(15);
+      border-radius: pxtovw(8);
+      margin-top: pxtovw(20);
+      font-size: pxtovw(14);
+      text-align: center;
+      font-weight: 500;
+
+      @include tablet {
+        padding: pxtovwmob(12);
+        border-radius: pxtovwmob(6);
+        margin-top: pxtovwmob(16);
+        font-size: pxtovwmob(13);
+      }
+
+      &.success {
+        display: block;
+        background-color: rgba($medical-green, 0.1);
+        color: color.scale($medical-green, $lightness: -10%);
+        border: 1px solid rgba($medical-green, 0.3);
+      }
+
+      &.error {
+        display: block;
+        background-color: rgba(#dc3545, 0.1);
+        color: #dc3545;
+        border: 1px solid rgba(#dc3545, 0.3);
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
