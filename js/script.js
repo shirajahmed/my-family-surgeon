@@ -241,7 +241,7 @@ if (form) {
             feedback.className = 'form-feedback';
 
             // Google Apps Script Web App URL (User needs to replace this)
-            const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwUmBhnjqz1n9RE8dSkAdgc27x0ms97esWKio0Qh0JFudd_sU38tDUFs6_LelL5oP_L/exec';
 
             const formData = new FormData(form);
             const data = {};
